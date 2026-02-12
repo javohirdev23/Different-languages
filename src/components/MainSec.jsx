@@ -7,6 +7,8 @@ export default function MainSec({ lang }) {
   const [state, setState] = useState([]);
   const { t } = useTranslation();
   const [loader, setLoader] = useState(true);
+  const [error, setError] = useState(false);
+
   if (loader) {
     document.body.classList.add("overflow-hidden");
   } else {
@@ -21,13 +23,23 @@ export default function MainSec({ lang }) {
       .then((res) => {
         setState(res.data);
       })
-      .catch(() => {})
+      .catch(() => {
+        setError(true);
+      })
       .finally(() => {
         setLoader(false);
       });
   }, [lang]);
+
   return (
     <>
+      {error && (
+        <img
+          className="w-full h-screen mx-auto justify-center inset-0 fixed overflow-y-hidden "
+          src="./error404.jpg"
+          alt=""
+        />
+      )}
       {loader && <Loader />}
       {!loader && (
         <div className="w-[1110px] mx-auto mt-[160px]">

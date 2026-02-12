@@ -10,6 +10,7 @@ export default function Cta() {
       </div>
       <div>
         <img src="./cta.svg" alt="" />
+        
       </div>
     </div>
   );
