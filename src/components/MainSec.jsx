@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
-import Loader from "./loader";
+import Loader from "./Loader";
 
 export default function MainSec({ lang }) {
   const [count, setCount] = useState(0);
@@ -9,11 +9,11 @@ export default function MainSec({ lang }) {
   const [loader, setLoader] = useState(true);
   if (loader) {
     document.body.classList.add("overflow-hidden");
-  }else{
-      document.body.classList.remove("overflow-hidden");
+  } else {
+    document.body.classList.remove("overflow-hidden");
   }
   useEffect(() => {
-    setLoader(true)
+    setLoader(true);
     fetch(`https://json-api.uz/api/project/multi-languages/${lang}`)
       .then((res) => {
         return res.json();
