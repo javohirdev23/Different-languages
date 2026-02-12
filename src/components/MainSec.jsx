@@ -34,11 +34,14 @@ export default function MainSec({ lang }) {
   return (
     <>
       {error && (
-        <img
-          className="w-full h-screen mx-auto justify-center inset-0 fixed overflow-y-hidden "
-          src="./error404.jpg"
-          alt=""
-        />
+        <div className="w-full h-screen mx-auto flex justify-center inset-0 fixed overflow-hidden bg-white items-center">
+
+          <img 
+            className="  flex justify-center"
+            src="./error.png"
+            alt=""
+          />
+        </div>
       )}
       {loader && <Loader />}
       {!loader && (
